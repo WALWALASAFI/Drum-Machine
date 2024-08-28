@@ -30,17 +30,28 @@ const DrumPad = ({ clip, updateDisplay }) => {
 
   const playSound = () => {
     const audioElement = document.getElementById(clip.key);
+
+    // Pause the audio if it's playing, reset it to the start, and then play it
+    if (!audioElement.paused) {
+      audioElement.pause();
+    }
     audioElement.currentTime = 0;
-    audioElement.play();
+
+    // Play the audio and handle errors if they occur
+    audioElement.play().catch((error) => {
+      console.error("Error playing sound:", error);
+    });
+
+    // Set the pad as active and reset after a short delay
     setActive(true);
-    setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
+    setTimeout(() => setActive(false), 200);
     updateDisplay(clip.key);
   };
 
   return (
     <div
       id={`drum-${clip.key}`}
-      className={`drum-pad text-white font-bold py-2 px-4 rounded m-2 cursor-pointer ${clip.color} ${
+      className={`drum-pad text-white font-bold py-8 px-10 rounded m-2 cursor-pointer ${clip.color} ${
         active ? "bg-white text-black" : `${clip.color} hover:bg-white hover:text-black`
       }`}
       onClick={playSound}
@@ -59,9 +70,9 @@ const DrumMachine = () => {
   };
 
   return (
-    <div id="drum-machine" className="flex flex-col items-center justify-center h-screen bg-white text-black p-4 rounded-lg">
-      <h1 className="text-3xl font-bold mb-4">Drum Machine</h1>
-      <div id="display" className="text-2xl font-bold mb-4">
+    <div id="drum-machine" className="flex flex-col items-center justify-center h-screen bg-black text- p-6 rounded-lg">
+      <h1 className="text-3xl font-bold text-white mb-4">Drum Machine</h1>
+      <div id="display" className="text-2xl font-bold text-white mb-4">
         {display}
       </div>
       <div className="grid grid-cols-3 gap-2">
