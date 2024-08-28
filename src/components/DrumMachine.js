@@ -40,9 +40,9 @@ const DrumMachine = () => {
   }, []);
 
   return (
-    <div id="drum-machine">
-      <div id="display">{display}</div>
-      <div className="pad-bank">
+    <div id="drum-machine" className="bg-gray-800 text-white rounded-lg shadow-lg p-8">
+      <div id="display" className="text-xl font-bold mb-4 text-center">{display}</div>
+      <div className="grid grid-cols-3 gap-4">
         {drumPads.map(pad => (
           <DrumPad
             key={pad.id}
