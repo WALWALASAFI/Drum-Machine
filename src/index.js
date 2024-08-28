@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';  // Add custom global styles here, if any
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import DrumMachine from "./App";
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <DrumMachine />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
