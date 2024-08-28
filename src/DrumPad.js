@@ -1,36 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from "react";
 
-const DrumPad = ({ keyTrigger, id }) => {
-  const audioClip = `https://s3.amazonaws.com/freecodecamp/drums/${id.replace("'", '')}.mp3`;
+const DrumPad = ({ clip, updateDisplay }) => {
+  const [active, setActive] = useState(false);
+  const audioRef = useRef(null); // Reference to the audio element
 
-  const playAudio = () => {
-    const audio = document.getElementById(keyTrigger);
-
-    if (audio) {
-      audio.currentTime = 0;
-      const playPromise = audio.play();
-
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.error('Play error:', error);
-        });
+  useEffect(() => {
+    const handleKeydown = (event) => {
+      if (event.key.toUpperCase() === clip.key) {
+        playSound();
       }
+    };
+    document.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeydown);
+    };
+  }, [clip.key]);
+
+  const playSound = () => {
+    const audioElement = audioRef.current;
+
+    if (audioElement) {
+      audioElement.pause();
+      audioElement.currentTime = 0;
+      audioElement.play().catch((error) => {
+        console.error("Error playing sound:", error);
+      });
+
+      setActive(true);
+      setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
+      updateDisplay(clip.key);
     }
-    
-    document.getElementById('display').innerText = id;
   };
 
   return (
-    <div className="drum-pad p-4 bg-gray-600 rounded-lg text-center" id={id} onClick={playAudio}>
-      {keyTrigger}
-      <audio
-        className="clip"
-        id={keyTrigger}
-        src={audioClip}
-        onError={() => console.error('Audio failed to load:', audioClip)}
-      ></audio>
+    <div
+      id={`drum-${clip.key}`}
+      className={`drum-pad text-white font-bold py-2 px-4 rounded m-2 cursor-pointer ${clip.color} ${
+        active ? "bg-white text-black" : `${clip.color} hover:bg-white hover:text-black`
+      }`}
+      onClick={playSound}
+    >
+      {clip.key}
+      <audio ref={audioRef} id={clip.key} className="clip" src={clip.sound}></audio>
     </div>
   );
 };
-
-export default DrumPad;

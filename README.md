@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Drum Machine
+#### 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Dimo 
+![pic](<New folder/SharedScreenshot.jpg>)
 
-In the project directory, you can run:
+You can check the live dimo of project [here](https://markdown-previewer-eight-mu.vercel.app/)
 
-### `npm start`
+# Features
+#### 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Technologies Used
+#### React: A JavaScript library for building user interfaces.
+#### Marked: A markdown parser to convert markdown syntax into HTML.
+#### Tailwind CSS: A utility-first CSS framework for styling the application.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# How to Use
+1️⃣ `creat a new repository in your github`
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2️⃣  `Create a New Project Directory`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open your terminal or command prompt. Navigate to the directory where you want to create your project. Run the following command to create a new directory for your project: bash Copy code mkdir documentation-project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3️⃣  `open HTML in any program such you want ssuch us: vscode, terminal and cmd`
 
-### `npm run eject`
+4️⃣ `creat a  HTML file`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4️⃣ `creat a  javascript file`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5️⃣ `give a style to project by creating style.css file` 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6️⃣ `use (git add, git commint, git push) in the git bash to push it in Github`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+7️⃣  `Make a string and uniqe project-Readme.md file`
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Technologies 
+1️⃣  React: Frontend library for building the user interface.
 
-### Code Splitting
+2️⃣  Axios: For making HTTP requests to fetch quotes and images.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3️⃣  Tailwind CSS: For styling the components.
 
-### Analyzing the Bundle Size
+4️⃣  API Ninjas Quotes API: For retrieving quotes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5️⃣  Pexels API: For fetching background images based on the selected category.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Author 🔵✅
+◻ Github: WALWALA SAFI (https://github.com/WALWALASAFI/product-landing-page.git)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+◻ Linkedin:  walwala safi (https://www.linkedin.com/in/walwala-safi-65b56530a/)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+◻ Email: walwala safi (walwalasafi99@gmail.com)
