@@ -24,6 +24,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
     audioElement.currentTime = 0;
 
     audioElement.play().catch((error) => {
+      // eslint-disable-next-line no-console
       console.error('Error playing sound:', error);
     });
 

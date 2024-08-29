@@ -7,5 +7,5 @@ ReactDOM.render(
   <React.StrictMode>
     <DrumMachine />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'), // Add a trailing comma here
 );

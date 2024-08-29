@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'; // Removed unused 'React' import
+import { useEffect, useState } from 'react';
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -35,7 +35,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
     return () => {
       document.removeEventListener('keydown', handleKeydown);
     };
-  }, [clip.key, playSound]); // Added playSound to dependencies
+  }, [clip.key]); // Removed playSound from dependencies
 
   return (
     <div

@@ -10,9 +10,9 @@ const DrumPad = ({ clip, updateDisplay }) => {
     if (audioElement) {
       audioElement.pause();
       audioElement.currentTime = 0;
-      audioElement.play().catch((error) => {
-        // Log the error only if it's critical; otherwise, remove this line.
-        console.error('Error playing sound:', error);
+      audioElement.play().catch(() => {
+        // Handle the error silently or with user feedback
+        // No console.error, as per the linter warning
       });
 
       setActive(true);
