@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'; // Keep the import for React and hooks
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -12,6 +12,7 @@ const audioClips = [
   { key: 'C', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3', color: 'bg-indigo-500' },
 ];
 
+// Define the DrumPad component
 const DrumPad = ({ clip, updateDisplay }) => {
   const [active, setActive] = useState(false);
 
@@ -24,7 +25,6 @@ const DrumPad = ({ clip, updateDisplay }) => {
     audioElement.currentTime = 0;
 
     audioElement.play().catch((error) => {
-      // eslint-disable-next-line no-console
       console.error('Error playing sound:', error);
     });
 
@@ -60,6 +60,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
   );
 };
 
+// Define the DrumMachine component
 const DrumMachine = () => {
   const [display, setDisplay] = useState('Press a Key');
 
@@ -82,6 +83,7 @@ const DrumMachine = () => {
   );
 };
 
+// Define and use the App component
 function App() {
   return (
     <div className="App">

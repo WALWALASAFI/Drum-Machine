@@ -6,15 +6,15 @@ You can check the live dimo of project [here](https://drum-machine-ten-mocha.ver
 #### The Drum Machine is a web-based application that allows users to play different drum sounds by either clicking on the on-screen drum pads or by pressing corresponding keys on their keyboard. The app is built using React and styled with Tailwind CSS, providing an interactive and responsive user experience.
 
 # Features
-### Responsive Design: The Drum Machine adapts to different screen sizes, ensuring a consistent experience across devices.
+#### Responsive Design: The Drum Machine adapts to different screen sizes, ensuring a consistent experience across devices.
 
-### Keyboard Interactivity: Users can trigger drum sounds by pressing the keys Q, W, E, A, S, D, Z, X, and C on their keyboard.
+#### Keyboard Interactivity: Users can trigger drum sounds by pressing the keys Q, W, E, A, S, D, Z, X, and C on their keyboard.
 
-### Dynamic Display: When a drum pad is activated, the corresponding letter is displayed on the screen, along with a visual change to indicate the pad has been pressed.
+#### Dynamic Display: When a drum pad is activated, the corresponding letter is displayed on the screen, along with a visual change to indicate the pad has been pressed.
 
-### Sound Playback: Each drum pad is associated with a unique sound file. When clicked or triggered via the keyboard, the sound is played instantly.
+#### Sound Playback: Each drum pad is associated with a unique sound file. When clicked or triggered via the keyboard, the sound is played instantly.
 
-### Visual Feedback: Active drum pads change color momentarily when pressed, enhancing user interaction and feedback.
+#### Visual Feedback: Active drum pads change color momentarily when pressed, enhancing user interaction and feedback.
 
 
 

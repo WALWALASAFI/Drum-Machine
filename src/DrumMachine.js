@@ -12,6 +12,8 @@ const audioClips = [
   { key: 'C', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3', color: 'bg-indigo-500' },
 ];
 
+// No need to import DrumPad if it's defined in the same file
+
 const DrumPad = ({ clip, updateDisplay }) => {
   const [active, setActive] = useState(false);
 
