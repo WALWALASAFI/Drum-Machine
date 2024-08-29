@@ -4,19 +4,6 @@ const DrumPad = ({ clip, updateDisplay }) => {
   const [active, setActive] = useState(false);
   const audioRef = useRef(null); // Reference to the audio element
 
-  useEffect(() => {
-    const handleKeydown = (event) => {
-      if (event.key.toUpperCase() === clip.key) {
-        playSound();
-      }
-    };
-    document.addEventListener('keydown', handleKeydown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeydown);
-    };
-  }, [clip.key]);
-
   const playSound = () => {
     const audioElement = audioRef.current;
 
@@ -33,6 +20,19 @@ const DrumPad = ({ clip, updateDisplay }) => {
       updateDisplay(clip.key);
     }
   };
+
+  useEffect(() => {
+    const handleKeydown = (event) => {
+      if (event.key.toUpperCase() === clip.key) {
+        playSound();
+      }
+    };
+    document.addEventListener('keydown', handleKeydown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeydown);
+    };
+  }, [clip.key]);
 
   return (
     <div

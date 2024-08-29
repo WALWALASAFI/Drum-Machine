@@ -15,6 +15,23 @@ const audioClips = [
 const DrumPad = ({ clip, updateDisplay }) => {
   const [active, setActive] = useState(false);
 
+  const playSound = () => {
+    const audioElement = document.getElementById(clip.key);
+
+    if (!audioElement.paused) {
+      audioElement.pause();
+    }
+    audioElement.currentTime = 0;
+
+    audioElement.play().catch((error) => {
+      console.error('Error playing sound:', error);
+    });
+
+    setActive(true);
+    setTimeout(() => setActive(false), 200);
+    updateDisplay(clip.key);
+  };
+
   useEffect(() => {
     const handleKeydown = (event) => {
       if (event.key.toUpperCase() === clip.key) {
@@ -27,26 +44,6 @@ const DrumPad = ({ clip, updateDisplay }) => {
       document.removeEventListener('keydown', handleKeydown);
     };
   }, [clip.key]);
-
-  const playSound = () => {
-    const audioElement = document.getElementById(clip.key);
-
-    // Pause the audio if it's playing, reset it to the start, and then play it
-    if (!audioElement.paused) {
-      audioElement.pause();
-    }
-    audioElement.currentTime = 0;
-
-    // Play the audio and handle errors if they occur
-    audioElement.play().catch((error) => {
-      console.error('Error playing sound:', error);
-    });
-
-    // Set the pad as active and reset after a short delay
-    setActive(true);
-    setTimeout(() => setActive(false), 200);
-    updateDisplay(clip.key);
-  };
 
   return (
     <div

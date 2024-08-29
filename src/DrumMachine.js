@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; // Removed unused 'React' import
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -15,6 +15,15 @@ const audioClips = [
 const DrumPad = ({ clip, updateDisplay }) => {
   const [active, setActive] = useState(false);
 
+  const playSound = () => {
+    const audioElement = document.getElementById(clip.key);
+    audioElement.currentTime = 0;
+    audioElement.play();
+    setActive(true);
+    setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
+    updateDisplay(clip.key);
+  };
+
   useEffect(() => {
     const handleKeydown = (event) => {
       if (event.key.toUpperCase() === clip.key) {
@@ -26,16 +35,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
     return () => {
       document.removeEventListener('keydown', handleKeydown);
     };
-  }, [clip.key]);
-
-  const playSound = () => {
-    const audioElement = document.getElementById(clip.key);
-    audioElement.currentTime = 0;
-    audioElement.play();
-    setActive(true);
-    setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
-    updateDisplay(clip.key);
-  };
+  }, [clip.key, playSound]); // Added playSound to dependencies
 
   return (
     <div
