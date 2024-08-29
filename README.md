@@ -2,7 +2,7 @@
  ![Dimo](image/SharedScreenshot.jpg)
 
 
-You can check the live dimo of project [here](https://markdown-previewer-eight-mu.vercel.app/)
+You can check the live dimo of project [here](https://drum-machine-ten-mocha.vercel.app/)
 #### The Drum Machine is a web-based application that allows users to play different drum sounds by either clicking on the on-screen drum pads or by pressing corresponding keys on their keyboard. The app is built using React and styled with Tailwind CSS, providing an interactive and responsive user experience.
 
 # Features
