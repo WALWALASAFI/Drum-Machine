@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'; // Import only necessary hooks
+import React, { useEffect, useState } from 'react'; // Ensure React is imported
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -18,13 +18,22 @@ const DrumPad = ({ clip, updateDisplay }) => {
 
   const playSound = () => {
     const audioElement = document.getElementById(clip.key);
-    audioElement.currentTime = 0;
-    audioElement.play().catch((error) => {
-      console.error('Error playing sound:', error); // Keep this for error logging
-    });
-    setActive(true);
-    setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
-    updateDisplay(clip.key);
+
+    if (audioElement) { // Ensure the audio element exists
+      if (!audioElement.paused) {
+        audioElement.pause();
+      }
+      audioElement.currentTime = 0;
+
+      audioElement.play().catch((error) => {
+        // Handle play errors, optionally remove or adjust this
+        console.error('Error playing sound:', error); 
+      });
+
+      setActive(true);
+      setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
+      updateDisplay(clip.key);
+    }
   };
 
   useEffect(() => {
@@ -38,7 +47,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
     return () => {
       document.removeEventListener('keydown', handleKeydown);
     };
-  }, [clip.key]); // No need to include playSound in dependencies
+  }, [clip.key]);
 
   return (
     <div
@@ -77,4 +86,4 @@ const DrumMachine = () => {
   );
 };
 
-export default DrumMachine; // Ensure this export is correct
+export default DrumMachine; // Ensure DrumMachine is exported correctly

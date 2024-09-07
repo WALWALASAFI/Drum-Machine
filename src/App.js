@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; // Keep the import for React and hooks
+import React, { useEffect, useState } from 'react'; // Import React for JSX support
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -19,18 +19,21 @@ const DrumPad = ({ clip, updateDisplay }) => {
   const playSound = () => {
     const audioElement = document.getElementById(clip.key);
 
-    if (!audioElement.paused) {
-      audioElement.pause();
+    if (audioElement) { // Ensure the audio element exists
+      if (!audioElement.paused) {
+        audioElement.pause();
+      }
+      audioElement.currentTime = 0;
+
+      audioElement.play().catch((error) => {
+        // Handle play errors
+        console.error('Error playing sound:', error); 
+      });
+
+      setActive(true);
+      setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
+      updateDisplay(clip.key);
     }
-    audioElement.currentTime = 0;
-
-    audioElement.play().catch((error) => {
-      console.error('Error playing sound:', error); // Keep this for error logging
-    });
-
-    setActive(true);
-    setTimeout(() => setActive(false), 200);
-    updateDisplay(clip.key);
   };
 
   useEffect(() => {
@@ -92,4 +95,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; // Ensure App is exported and used
