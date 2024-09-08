@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; // Ensure React is imported
+import { useEffect, useState } from 'react'; // Removed React import as it's not needed
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -19,7 +19,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
   const playSound = () => {
     const audioElement = document.getElementById(clip.key);
 
-    if (audioElement) { // Ensure the audio element exists
+    if (audioElement) {
       if (!audioElement.paused) {
         audioElement.pause();
       }
@@ -27,12 +27,12 @@ const DrumPad = ({ clip, updateDisplay }) => {
 
       audioElement.play().catch((error) => {
         if (process.env.NODE_ENV === 'development') {
-          console.error('Error playing sound:', error); 
+          console.error('Error playing sound:', error); // Log error in development only
         }
       });
 
       setActive(true);
-      setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
+      setTimeout(() => setActive(false), 200);
       updateDisplay(clip.key);
     }
   };
@@ -53,7 +53,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
   return (
     <div
       id={`drum-${clip.key}`}
-       className={`drum-pad text-white font-bold py-8 px-10 rounded m-2 cursor-pointer ${clip.color} ${
+      className={`drum-pad text-white font-bold py-8 px-10 rounded m-2 cursor-pointer ${clip.color} ${
         active ? 'bg-white text-black' : `${clip.color} hover:bg-white hover:text-black`
       }`}
       onClick={playSound}
@@ -87,4 +87,4 @@ const DrumMachine = () => {
   );
 };
 
-export default DrumMachine; // Ensure DrumMachine is exported correctly
+export default DrumMachine;
