@@ -25,11 +25,6 @@ const DrumPad = ({ clip, updateDisplay }) => {
       }
       audioElement.currentTime = 0;
 
-      audioElement.play().catch((error) => {
-        // Handle play errors, optionally remove or adjust this
-        console.error('Error playing sound:', error); 
-      });
-
       setActive(true);
       setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
       updateDisplay(clip.key);
