@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react'; // Removed React import as it's not needed
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+
+import { useEffect, useState } from 'react';
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -26,8 +29,9 @@ const DrumPad = ({ clip, updateDisplay }) => {
       audioElement.currentTime = 0;
 
       audioElement.play().catch((error) => {
+        // Log error in development only
         if (process.env.NODE_ENV === 'development') {
-          console.error('Error playing sound:', error); // Log error in development only
+          console.error('Error playing sound:', error); // eslint-disable-line no-console
         }
       });
 
