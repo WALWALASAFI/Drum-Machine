@@ -1,4 +1,3 @@
-import React from 'react';
 import DrumMachine from './DrumMachine'; // Import DrumMachine component
 
 const App = () => (

@@ -13,7 +13,12 @@
   "rules": {
     "no-shadow": "off",
     "no-param-reassign": "off",
-    "eol-last": "off"
+    "eol-last": "off",
+    "no-unused-vars": [
+      "warn", // Change to "off" to disable entirely or "warn" to only issue a warning
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^DrumPad$" } // Ignore specific variables or patterns
+    ],
+    "no-console": "off" // Disable the warning for console statements
   },
   "ignorePatterns": [
     "dist/",
