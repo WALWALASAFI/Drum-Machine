@@ -12,6 +12,7 @@ const audioClips = [
   { key: 'C', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3', color: 'bg-indigo-500' },
 ];
 
+// Define the DrumPad component
 const DrumPad = ({ clip, updateDisplay }) => {
   const [active, setActive] = useState(false);
 
@@ -26,7 +27,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
 
       audioElement.play().catch((error) => {
         // Handle play errors
-        console.error('Error playing sound:', error); 
+        console.error('Error playing sound:', error);
       });
 
       setActive(true);
@@ -62,6 +63,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
   );
 };
 
+// Define the DrumMachine component
 const DrumMachine = () => {
   const [display, setDisplay] = useState('Press a Key');
 
@@ -84,6 +86,7 @@ const DrumMachine = () => {
   );
 };
 
+// Define and use the App component
 function App() {
   return (
     <div className="App">
@@ -92,4 +95,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

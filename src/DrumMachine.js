@@ -26,7 +26,7 @@ const DrumPad = ({ clip, updateDisplay }) => {
 
       audioElement.play().catch((error) => {
         // Handle play errors
-        console.error('Error playing sound:', error);
+        console.error('Error playing sound:', error); // Consider removing or conditionally logging
       });
 
       setActive(true);
@@ -92,4 +92,4 @@ function App() {
   );
 }
 
-export default App; // Ensure App is exported correctly
+export default App;
