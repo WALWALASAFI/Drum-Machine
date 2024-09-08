@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; // Ensure React is imported
+import { useEffect, useState } from 'react'; // Import only necessary hooks
 
 const audioClips = [
   { key: 'Q', sound: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', color: 'bg-red-500' },
@@ -24,6 +24,11 @@ const DrumPad = ({ clip, updateDisplay }) => {
         audioElement.pause();
       }
       audioElement.currentTime = 0;
+
+      audioElement.play().catch((error) => {
+        // Handle play errors
+        console.error('Error playing sound:', error);
+      });
 
       setActive(true);
       setTimeout(() => setActive(false), 200); // Reset to inactive after a short delay
